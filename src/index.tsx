@@ -1,4 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Application from "./components/Application";
+import hits from "./data";
 
-ReactDOM.render(<div>Hello world</div>, document.querySelector("#root"));
+ReactDOM.render(<Application hits={hits} />, document.querySelector("#root"));
