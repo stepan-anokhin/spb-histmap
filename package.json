@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Stepan Anokhin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
 }
