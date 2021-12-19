@@ -1,12 +1,12 @@
 {
-  "name": "spb-gpw2-histmap",
+  "name": "spb-gpw-histmap",
   "version": "1.0.0",
-  "description": "",
+  "description": "Интерактивная историческая карта Ленинграда в ВОВ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Stepan Anokhin",
+  "license": "MIT"
 }
