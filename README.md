@@ -4,7 +4,7 @@
 в период Великой Отечественной Войны.</p>
 
 <p align="center">
-    <a href="https://github.com/stepan-anokhin/spb-histmap/actions?query=workflow%3ACI"><img src="https://github.com/stepan-anokhin/spb-histmap/workflows/CI/badge.svg?branch=master" alt="CI Workflow"></a>
+    <a href="https://github.com/stepan-anokhin/spb-histmap/actions?query=workflow%3AFrontend%20CI"><img src="https://github.com/stepan-anokhin/spb-histmap/workflows/Frontend%20CI/badge.svg?branch=master" alt="CI Workflow"></a>
     <a href="LICENSE"><img src="https://img.shields.io/github/license/stepan-anokhin/spb-histmap.svg" alt="License"></a> 
 </p>
 
