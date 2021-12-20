@@ -1,8 +1,4 @@
-// 59.8369/30.2536
-//
-// 60.0384/30.4472
-
-import {ArtilleryHit} from "./model";
+import { ArtilleryHit } from "./model";
 
 const hits: ArtilleryHit[] = [
   {
