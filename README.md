@@ -1,7 +1,7 @@
 <h1 align="center">Ленинград под Огнём</h1>
 
 <p align="center">Интерактивная историческая карта артиллерийских и авиа-ударов Ленинграда 
-в период Великой Отечественной Войны.</p>
+в период Блокады.</p>
 
 <p align="center">
     <a href="https://github.com/stepan-anokhin/spb-histmap/actions?query=workflow%3AFrontend%20CI"><img src="https://github.com/stepan-anokhin/spb-histmap/workflows/Frontend%20CI/badge.svg?branch=master" alt="CI Workflow"></a>
