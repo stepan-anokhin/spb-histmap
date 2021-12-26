@@ -3,12 +3,15 @@ import { ArtilleryHit, asArray } from "../../model";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 
-type ApplicationProps = {
+type HistMapProps = {
   hits: ArtilleryHit[];
   className?: string;
 };
 
-function Application(props: ApplicationProps): JSX.Element {
+/**
+ * Leaflet map that will display artillery hits and modern Saint-Petersburg map.
+ */
+export default function HistMap(props: HistMapProps): JSX.Element {
   const { hits, className } = props;
   return (
     <div className={className} style={{ width: "100vw", height: "100vh" }}>
@@ -35,5 +38,3 @@ function Application(props: ApplicationProps): JSX.Element {
     </div>
   );
 }
-
-export default Application;
