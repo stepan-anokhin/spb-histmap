@@ -1,5 +1,5 @@
 {
-  "name": "spb-gpw-histmap",
+  "name": "spb-histmap",
   "version": "1.0.0",
   "description": "Интерактивная историческая карта Ленинграда в ВОВ",
   "main": "index.js",
