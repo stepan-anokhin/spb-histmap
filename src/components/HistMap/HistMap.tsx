@@ -14,27 +14,25 @@ type HistMapProps = {
 export default function HistMap(props: HistMapProps): JSX.Element {
   const { hits, className } = props;
   return (
-    <div className={className} style={{ width: "100vw", height: "100vh" }}>
-      <MapContainer
-        center={[59.9227, 30.3353]}
-        zoom={10}
-        scrollWheelZoom={false}
-        style={{ height: "100%" }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <MarkerClusterGroup>
-          {hits.map((hit, index) => (
-            <Marker position={asArray(hit.position)} key={index}>
-              <Popup>
-                {hit.date.toString()} <br /> {hit.address}
-              </Popup>
-            </Marker>
-          ))}
-        </MarkerClusterGroup>
-      </MapContainer>
-    </div>
+    <MapContainer
+      center={[59.9227, 30.3353]}
+      zoom={10}
+      scrollWheelZoom={false}
+      className={className}
+    >
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <MarkerClusterGroup>
+        {hits.map((hit, index) => (
+          <Marker position={asArray(hit.position)} key={index}>
+            <Popup>
+              {hit.date.toString()} <br /> {hit.address}
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
+    </MapContainer>
   );
 }
