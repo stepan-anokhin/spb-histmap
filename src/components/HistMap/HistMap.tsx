@@ -2,7 +2,7 @@ import React from "react";
 import { ArtilleryHit, asArray } from "../../model";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import { LatLngBounds, LatLngTuple } from "leaflet";
+import { LatLngBounds } from "leaflet";
 
 /**
  * Area displayed by HistMap.
@@ -20,7 +20,7 @@ type HistMapProps = {
 /**
  * Leaflet map that will display artillery hits and modern Saint-Petersburg map.
  */
-export default function HistMap(props: HistMapProps): JSX.Element {
+const HistMap = React.memo(function HistMap(props: HistMapProps): JSX.Element {
   const { hits, className } = props;
   return (
     <MapContainer
@@ -47,4 +47,6 @@ export default function HistMap(props: HistMapProps): JSX.Element {
       </MarkerClusterGroup>
     </MapContainer>
   );
-}
+});
+
+export default HistMap;
