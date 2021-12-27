@@ -8,4 +8,7 @@ import HistMapApplication from "./components/HistMapApplication";
 
 import hits from "./data";
 
-ReactDOM.render(<HistMapApplication hits={hits} />, document.querySelector("#root"));
+ReactDOM.render(
+  <HistMapApplication hits={hits} />,
+  document.querySelector("#root")
+);
