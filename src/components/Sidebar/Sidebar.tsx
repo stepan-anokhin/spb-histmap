@@ -28,11 +28,11 @@ const SidebarBody = styled("div")(({ theme }) => ({
   width: "min(70vw, 300px)",
 }));
 
-const SidebarHeader = styled("div")(({ theme }) => ({
+const SidebarHeader = styled("div")({
   display: "flex",
   alignItems: "center",
   width: "100%",
-}));
+});
 
 const Title = styled(Typography)(({ theme }) => ({
   marginLeft: theme.spacing(1),
