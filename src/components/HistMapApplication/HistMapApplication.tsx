@@ -7,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Fab from "@mui/material/Fab";
 import { darkTheme } from "../../theme";
 import Drawer from "@mui/material/Drawer";
+import Tooltip from "@mui/material/Tooltip";
 import Sidebar from "../Sidebar";
 
 const AppContainer = styled("div")({
@@ -40,11 +41,11 @@ type UseDrawerResults = {
  */
 function useDrawer(theme: Theme): UseDrawerResults {
   const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(!smallScreen);
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
   return {
-    open: !smallScreen || open,
+    open,
     handleOpen,
     handleClose,
     variant: smallScreen ? "temporary" : "persistent",
@@ -65,16 +66,23 @@ function HistMapApplication(props: ApplicationProps): JSX.Element {
     <AppContainer className={className}>
       <ThemeProvider theme={theme}>
         <StyledHistMap hits={hits} />
-        <SidebarFab onClick={drawer.handleOpen}>
-          <MenuIcon />
-        </SidebarFab>
+        <Tooltip title="Настройки поиска">
+          <SidebarFab onClick={drawer.handleOpen}>
+            <MenuIcon />
+          </SidebarFab>
+        </Tooltip>
         <Drawer
           anchor="left"
           open={drawer.open}
           onClose={drawer.handleClose}
           variant={drawer.variant}
         >
-          <Sidebar />
+          <Sidebar
+            onBack={() => {
+              console.log("Clicked!");
+              drawer.handleClose();
+            }}
+          />
         </Drawer>
       </ThemeProvider>
     </AppContainer>

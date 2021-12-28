@@ -25,12 +25,12 @@ const HistMap = React.memo(function HistMap(props: HistMapProps): JSX.Element {
   return (
     <MapContainer
       center={[59.9227, 30.3353]}
-      zoom={10}
+      zoom={9}
       scrollWheelZoom
       zoomControl={false}
       className={className}
       maxBounds={mapBounds}
-      minZoom={10}
+      minZoom={9}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
