@@ -112,7 +112,7 @@ class Tagged<TTagged extends OSMTagged = OSMTagged> {
 
   get houseNumber(): number | undefined {
     const houseNumber = this.getTag(OSMKey.ADDR_HOUSE_NUMBER);
-    return houseNumber != null ? Number(houseNumber) : undefined;
+    return !isNaN(Number(houseNumber)) ? Number(houseNumber) : undefined;
   }
 
   get street(): string | undefined {
