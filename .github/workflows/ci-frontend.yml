@@ -44,4 +44,6 @@ jobs:
       - name: Clean data
         run: rm src/data.ts && rm src/processing/spb-houses.ts
       - name: Generate fake data
-        run: "npm run generate:fake-data"
+        run: |
+          export export NODE_OPTIONS="--max-old-space-size=4096"
+          npm run generate:fake-data
