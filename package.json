@@ -10,7 +10,8 @@
     "prettier:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,md,json,yml}\"",
     "prettier:fix": "prettier --ignore-path .gitignore --write --list-different \"**/*.{js,ts,tsx,md,json,yml}\"",
     "test": "npm run lint && npm run prettier:check",
-    "generate:spb-houses": "ts-node scripts/get-houses-geodata.ts"
+    "generate:spb-houses": "ts-node scripts/get-houses-geodata.ts",
+    "generate:fake-data": "npm run generate:spb-houses && ts-node scripts/generate-fake-data.ts"
   },
   "keywords": [],
   "author": "Stepan Anokhin",

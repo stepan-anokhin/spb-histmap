@@ -2,6 +2,8 @@ import { createWriteStream, PathLike, promises as fs } from "fs";
 import { dirname } from "path";
 import axios from "axios";
 import yauzl, { Entry } from "yauzl";
+import * as prettier from "prettier";
+import { inspect } from "util";
 
 type DownloadFileOptions = {
   lazy?: boolean;
@@ -158,4 +160,35 @@ export async function unzipFile(
   }
 
   return true;
+}
+
+/**
+ * Convert value to TypeScript literal.
+ */
+export function toTypeScriptLiteral(value: any): string {
+  return inspect(value, {
+    depth: null,
+    maxArrayLength: null,
+    maxStringLength: null,
+    showHidden: false,
+    colors: false,
+  });
+}
+
+/**
+ * Write type-script module.
+ */
+export async function writeTypeScriptModule(
+  filePath: string,
+  content: string
+): Promise<void> {
+  const defaultOptions: prettier.Options = { parser: "babel" };
+  const options = await prettier.resolveConfig(filePath);
+  const prettyContent = prettier.format(content, {
+    ...defaultOptions,
+    ...options,
+  });
+
+  // Write content
+  await fs.writeFile(filePath, prettyContent);
 }

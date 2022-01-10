@@ -3,6 +3,7 @@ import { ArtilleryHit, asArray } from "../../model";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { LatLngBounds } from "leaflet";
+import { format as formatDate } from "date-fns";
 
 /**
  * Area displayed by HistMap.
@@ -40,7 +41,8 @@ const HistMap = React.memo(function HistMap(props: HistMapProps): JSX.Element {
         {hits.map((hit, index) => (
           <Marker position={asArray(hit.position)} key={index}>
             <Popup>
-              {hit.date.toString()} <br /> {hit.address}
+              Дата: {formatDate(hit.date, "dd.MM.yyyy")} <br /> Адрес:{" "}
+              {hit.address.street}, {hit.address.houseNumber}
             </Popup>
           </Marker>
         ))}
