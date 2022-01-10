@@ -1,11 +1,21 @@
+export type Address = {
+  street: string;
+  houseNumber: number;
+};
+
 export type Position = {
   lat: number;
   lng: number;
 };
 
+export type House = {
+  address: Address;
+  position: Position;
+};
+
 export type ArtilleryHit = {
   date: Date;
-  address: string;
+  address: Address;
   position: Position;
 };
 
