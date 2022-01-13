@@ -54,18 +54,19 @@ function useDrawer(theme: Theme): UseDrawerResults {
 
 type ApplicationProps = {
   hits: ArtilleryHit[];
+  geojsons: GeoJSON.GeoJsonObject[];
   theme?: Theme;
   className?: string;
 };
 
 function HistMapApplication(props: ApplicationProps): JSX.Element {
-  const { hits, theme = darkTheme, className } = props;
+  const { hits, geojsons, theme = darkTheme, className } = props;
   const drawer = useDrawer(theme);
 
   return (
     <AppContainer className={className}>
       <ThemeProvider theme={theme}>
-        <StyledHistMap hits={hits} />
+        <StyledHistMap hits={hits} geojsons={geojsons} />
         <Tooltip title="Настройки поиска">
           <SidebarFab onClick={drawer.handleOpen}>
             <MenuIcon />
