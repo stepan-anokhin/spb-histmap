@@ -20,7 +20,8 @@ export type ArtilleryHit = {
 };
 
 export function getGeoJSONs(
-  requireContext : __WebpackModuleApi.RequireContext) : GeoJSON.GeoJsonObject[] {
+  requireContext: __WebpackModuleApi.RequireContext
+): GeoJSON.GeoJsonObject[] {
   return requireContext.keys().map((key) => {
     return requireContext(key) as GeoJSON.GeoJsonObject;
   });

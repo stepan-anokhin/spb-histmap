@@ -9,8 +9,9 @@ import { getGeoJSONs } from "./model";
 
 import hits from "./data";
 
-let geojsons : GeoJSON.GeoJsonObject[] =
-  getGeoJSONs(require.context("../frontlines", false, /.geojson$/));
+const geojsons: GeoJSON.GeoJsonObject[] = getGeoJSONs(
+  require.context("../frontlines", false, /.geojson$/)
+);
 
 ReactDOM.render(
   <HistMapApplication hits={hits} geojsons={geojsons} />,

@@ -24,9 +24,10 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test : /\.geojson$/,
-        use : ["json-loader"],
-      },    ],
+        test: /\.geojson$/,
+        use: ["json-loader"],
+      },
+    ],
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],

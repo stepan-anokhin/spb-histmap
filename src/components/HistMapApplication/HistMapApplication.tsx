@@ -54,7 +54,7 @@ function useDrawer(theme: Theme): UseDrawerResults {
 
 type ApplicationProps = {
   hits: ArtilleryHit[];
-  geojsons : GeoJSON.GeoJsonObject[]
+  geojsons: GeoJSON.GeoJsonObject[];
   theme?: Theme;
   className?: string;
 };

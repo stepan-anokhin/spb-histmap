@@ -15,33 +15,39 @@ const mapBounds = new LatLngBounds(
 
 type HistMapProps = {
   hits: ArtilleryHit[];
-  geojsons : GeoJSON.GeoJsonObject[]
+  geojsons: GeoJSON.GeoJsonObject[];
   className?: string;
 };
 
-function addFrontLineTooltip(feature : any, layer : L.Layer) {
+function addFrontLineTooltip(feature: any, layer: L.Layer) {
   const { description = "", dateStart, dateEnd } = feature.properties;
   layer.bindTooltip(
     description +
-    "<br/><br/>Линия фронта действовала с:<br/>" +
-    (dateStart == undefined ? "<неизвестно>" : new Date(dateStart).toString()) +
-    "</br>по:<br/>" +
-    (dateEnd == undefined ? "<неизвестно>" : new Date(dateEnd).toString()),
-    { sticky : true });
-}
-
-function setFrontLineStyle(feature : any) {
-  const FRONT_LINE_COLOR : string = "red";
-  let { color = FRONT_LINE_COLOR } = feature.properties;
-  return { color : color };
-}
-
-function renderGeoJSONs(jsons : GeoJSON.GeoJsonObject[]) : React.ReactNode[] {
-  return jsons.map((json) =>
-    <GeoJSON data={json}
-    style={setFrontLineStyle}
-    onEachFeature={addFrontLineTooltip}/>
+      "<br/><br/>Линия фронта действовала с:<br/>" +
+      (dateStart == undefined
+        ? "<неизвестно>"
+        : new Date(dateStart).toString()) +
+      "</br>по:<br/>" +
+      (dateEnd == undefined ? "<неизвестно>" : new Date(dateEnd).toString()),
+    { sticky: true }
   );
+}
+
+function setFrontLineStyle(feature: any) {
+  const FRONT_LINE_COLOR = "red";
+  const { color = FRONT_LINE_COLOR } = feature.properties;
+  return { color: color };
+}
+
+function renderGeoJSONs(jsons: GeoJSON.GeoJsonObject[]): React.ReactNode[] {
+  return jsons.map((json, index) => (
+    <GeoJSON
+      data={json}
+      key={index}
+      style={setFrontLineStyle}
+      onEachFeature={addFrontLineTooltip}
+    />
+  ));
 }
 
 /**
