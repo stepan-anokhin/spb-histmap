@@ -1,5 +1,11 @@
-import React, { useCallback, useState } from "react";
-import { ArtilleryHit, FrontLineGeoJSON } from "../../model";
+import React, { useCallback, useMemo, useState } from "react";
+import {
+  ArtilleryHit,
+  checkFrontLine,
+  checkHit,
+  DefaultAppOptions,
+  FrontLineGeoJSON,
+} from "../../model";
 import HistMap from "../HistMap";
 import { Theme, useMediaQuery } from "@mui/material";
 import { styled, ThemeProvider } from "@mui/material/styles";
@@ -9,6 +15,7 @@ import { darkTheme } from "../../theme";
 import Drawer from "@mui/material/Drawer";
 import Tooltip from "@mui/material/Tooltip";
 import Sidebar from "../Sidebar";
+import useStaging from "../../hooks/useStaging";
 
 const AppContainer = styled("div")({
   width: "100vw",
@@ -62,11 +69,25 @@ type ApplicationProps = {
 function HistMapApplication(props: ApplicationProps): JSX.Element {
   const { hits, geojsons, theme = darkTheme, className } = props;
   const drawer = useDrawer(theme);
+  const [options, stagingOptions, setStagingOptions] =
+    useStaging(DefaultAppOptions);
+  const selectedHits = useMemo(
+    () => hits.filter((hit) => checkHit(hit, options.hit)),
+    [hits, options]
+  );
+
+  const selectedFrontLines = useMemo(
+    () =>
+      geojsons.filter((frontLine) =>
+        checkFrontLine(frontLine, options.frontLine)
+      ),
+    [geojsons, options]
+  );
 
   return (
     <AppContainer className={className}>
       <ThemeProvider theme={theme}>
-        <StyledHistMap hits={hits} geojsons={geojsons} />
+        <StyledHistMap hits={selectedHits} geojsons={selectedFrontLines} />
         <Tooltip title="Настройки поиска">
           <SidebarFab onClick={drawer.handleOpen}>
             <MenuIcon />
@@ -79,10 +100,9 @@ function HistMapApplication(props: ApplicationProps): JSX.Element {
           variant={drawer.variant}
         >
           <Sidebar
-            onBack={() => {
-              console.log("Clicked!");
-              drawer.handleClose();
-            }}
+            onBack={() => drawer.handleClose()}
+            options={stagingOptions}
+            onChange={setStagingOptions}
           />
         </Drawer>
       </ThemeProvider>
