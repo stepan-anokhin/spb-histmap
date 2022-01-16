@@ -165,7 +165,7 @@ export async function unzipFile(
 /**
  * Convert value to TypeScript literal.
  */
-export function toTypeScriptLiteral(value: any): string {
+export function toTypeScriptLiteral(value: unknown): string {
   return inspect(value, {
     depth: null,
     maxArrayLength: null,

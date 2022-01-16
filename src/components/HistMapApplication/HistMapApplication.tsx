@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { ArtilleryHit } from "../../model";
+import { ArtilleryHit, FrontLineGeoJSON } from "../../model";
 import HistMap from "../HistMap";
 import { Theme, useMediaQuery } from "@mui/material";
 import { styled, ThemeProvider } from "@mui/material/styles";
@@ -54,7 +54,7 @@ function useDrawer(theme: Theme): UseDrawerResults {
 
 type ApplicationProps = {
   hits: ArtilleryHit[];
-  geojsons: GeoJSON.GeoJsonObject[];
+  geojsons: FrontLineGeoJSON[];
   theme?: Theme;
   className?: string;
 };
