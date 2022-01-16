@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.js --mode development",
     "build": "webpack --config webpack.config.js --mode production",
-    "lint": "eslint src",
-    "prettier:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,md,json,yml}\"",
-    "prettier:fix": "prettier --ignore-path .gitignore --write --list-different \"**/*.{js,ts,tsx,md,json,yml}\"",
+    "lint": "eslint --max-warnings=0 src",
+    "prettier:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,md,json,yml,geojson}\"",
+    "prettier:fix": "prettier --ignore-path .gitignore --write --list-different \"**/*.{js,ts,tsx,md,json,yml,geojson}\"",
     "test": "npm run lint && npm run prettier:check",
     "generate:spb-houses": "ts-node scripts/get-houses-geodata.ts",
     "generate:fake-data": "npm run generate:spb-houses && ts-node scripts/generate-fake-data.ts"
@@ -26,6 +26,7 @@
     "@mui/system": "^5.2.6",
     "date-fns": "^2.27.0",
     "fast-xml-parser": "^4.0.1",
+    "immer": "^9.0.12",
     "json-loader": "^0.5.7",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.5.3",

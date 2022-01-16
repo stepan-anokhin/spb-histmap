@@ -1,8 +1,13 @@
 import React from "react";
-import { ArtilleryHit, asArray } from "../../model";
-import { MapContainer, Marker, Popup, TileLayer, GeoJSON } from "react-leaflet";
+import {
+  ArtilleryHit,
+  asArray,
+  FrontLineElement,
+  FrontLineGeoJSON,
+} from "../../model";
+import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import { LatLngBounds } from "leaflet";
+import L, { LatLngBounds, PathOptions } from "leaflet";
 import { format as formatDate } from "date-fns";
 
 /**
@@ -15,11 +20,11 @@ const mapBounds = new LatLngBounds(
 
 type HistMapProps = {
   hits: ArtilleryHit[];
-  geojsons: GeoJSON.GeoJsonObject[];
+  geojsons: FrontLineGeoJSON[];
   className?: string;
 };
 
-function addFrontLineTooltip(feature: any, layer: L.Layer) {
+function addFrontLineTooltip(feature: FrontLineElement, layer: L.Layer) {
   const { description = "", dateStart, dateEnd } = feature.properties;
   layer.bindTooltip(
     description +
@@ -33,13 +38,15 @@ function addFrontLineTooltip(feature: any, layer: L.Layer) {
   );
 }
 
-function setFrontLineStyle(feature: any) {
-  const FRONT_LINE_COLOR = "red";
-  const { color = FRONT_LINE_COLOR } = feature.properties;
+function setFrontLineStyle(feature?: FrontLineElement): PathOptions {
+  if (feature == null) {
+    return {};
+  }
+  const { color = "red" } = feature.properties;
   return { color: color };
 }
 
-function renderGeoJSONs(jsons: GeoJSON.GeoJsonObject[]): React.ReactNode[] {
+function renderGeoJSONs(jsons: FrontLineGeoJSON[]): React.ReactNode[] {
   return jsons.map((json, index) => (
     <GeoJSON
       data={json}

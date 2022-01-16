@@ -1,1 +1,8 @@
-{}
+{
+  "overrides": [
+    {
+      "files": "**/*.geojson",
+      "options": { "parser": "json" }
+    }
+  ]
+}
