@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.js --mode development",
     "build": "webpack --config webpack.config.js --mode production",
-    "lint": "eslint src",
+    "lint": "eslint --max-warnings=0 src",
     "prettier:check": "prettier --ignore-path .gitignore --check \"**/*.{js,ts,tsx,md,json,yml,geojson}\"",
     "prettier:fix": "prettier --ignore-path .gitignore --write --list-different \"**/*.{js,ts,tsx,md,json,yml,geojson}\"",
     "test": "npm run lint && npm run prettier:check",
