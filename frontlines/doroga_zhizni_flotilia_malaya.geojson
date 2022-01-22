@@ -1,0 +1,32 @@
+{"type":"FeatureCollection",
+    "features":[
+	{"type":"Feature",
+	 "properties":{
+	"description":"Перевозки Ладожской флотилии по малой трассе",
+        "dateStart": "1942-05-20",
+        "dateEnd": "1942-11-25",
+        "color":"#FF0000"
+	},
+	"geometry":{"type":"LineString","coordinates":[[31.08315,60.1168],[31.53162,60.07452]
+    ]
+ }
+},
+	{"type":"Feature",
+	 "properties":{
+	"description":"Перевозки Ладожской флотилии по малой трассе",
+        "dateStart": "1942-05-20",
+        "dateEnd": "1942-11-25",
+        "color":"#FF0000"
+	},
+	"geometry":{"type":"LineString","coordinates":[[31.54312,60.02095],[31.38107,60.08916]
+    ]
+ }
+},
+	{"type":"Feature",
+	 "properties":{
+	"description":"Перевозки Ладожской флотилии по малой трассе",
+        "dateStart": "1942-05-20",
+        "dateEnd": "1942-11-25",
+        "color":"#FF0000"
+	},
+"geometry":{"type":"LineString","coordinates":[[31.30142,60.09669],[31.04462,60.17396]]}}]}

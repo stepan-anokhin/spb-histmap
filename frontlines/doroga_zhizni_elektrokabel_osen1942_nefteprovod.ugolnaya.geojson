@@ -1,0 +1,27 @@
+{"type":"FeatureCollection",
+	"features":[
+	{"type":"Feature",
+	 "properties":{
+        "description":"Электрический кабель проложенный по дну. Кабель Жизни.",
+        "dateStart": "1942-09-23",
+        "dateEnd": "1943-12-31",
+        "color":"#800080"
+	},
+	"geometry":{"type":"LineString","coordinates":[[31.08496,60.11055],[31.52218,60.06583]]}},
+	{"type":"Feature",
+	 "properties":{
+        "description":"Нефтепровод проложенный по дну.",
+        "dateStart": "1942-06-16",
+        "dateEnd": "1943-10-31",
+        "color":"#808080"
+	},
+	"geometry":{"type":"LineString","coordinates":[[31.52527,60.06792],[31.08376,60.11449]]}},
+	{"type":"Feature",
+	 "properties":{
+        "description":"Угольная трасса",
+        "dateStart": "1942-05-20",
+        "dateEnd": "1942-11-25",
+        "color":"#000000"
+	},
+	"geometry":{"type":"LineString","coordinates":[[31.52664,60.07032],[31.08307,60.11586]]}}]
+}

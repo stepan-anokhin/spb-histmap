@@ -28,7 +28,7 @@ function addFrontLineTooltip(feature: FrontLineElement, layer: L.Layer) {
   const { description = "", dateStart, dateEnd } = feature.properties;
   layer.bindTooltip(
     description +
-      "<br/><br/>Линия фронта действовала с:<br/>" +
+      "<br/><br/>На период с:<br/>" +
       (dateStart == undefined
         ? "<неизвестно>"
         : new Date(dateStart).toString()) +
