@@ -108,6 +108,7 @@ export const DefaultAppOptions: AppOptions = {
 };
 
 export const FrontLineDateFormat = "yyyy-MM-dd";
+export const DateDisplayFormat = "dd.MM.yyyy";
 
 /**
  * Parse front-line date.
