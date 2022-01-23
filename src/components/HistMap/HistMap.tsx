@@ -27,10 +27,17 @@ type HistMapProps = {
 };
 
 function addFrontLinePopup(feature: FrontLineElement, layer: L.Layer) {
-  const { description = "", dateStart, dateEnd } = feature.properties;
+  const {
+    description = "",
+    actionHeader = "Линия фронта действовала",
+    dateStart,
+    dateEnd,
+  } = feature.properties;
   layer.bindPopup(
     description +
-      "<br/><br/>Линия фронта действовала с:<br/>" +
+      "<br/><br/>" +
+      actionHeader +
+      " с:<br/>" +
       (dateStart == undefined
         ? "<неизвестно>"
         : formatDate(parseFrontLineDate(dateStart), DateDisplayFormat)) +
@@ -45,8 +52,7 @@ function setFrontLineStyle(feature?: FrontLineElement): PathOptions {
   if (feature == null) {
     return {};
   }
-  const { color = "red" } = feature.properties;
-  return { color: color };
+  return feature.properties as PathOptions;
 }
 
 function renderGeoJSONs(jsons: FrontLineGeoJSON[]): React.ReactNode[] {

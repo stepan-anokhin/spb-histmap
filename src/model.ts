@@ -1,5 +1,6 @@
 import * as geojson from "geojson";
 import { parse as parseDate } from "date-fns";
+import { PathOptions } from "leaflet";
 import RequireContext = __WebpackModuleApi.RequireContext;
 
 export type Address = {
@@ -26,11 +27,11 @@ export type ArtilleryHit = {
 /**
  * Front-line GeoJSON properties.
  */
-export type FrontLineProps = {
+export type FrontLineProps = PathOptions & {
   description: string;
+  actionHeader: string;
   dateStart: string;
   dateEnd: string;
-  color: string;
 };
 
 /**
