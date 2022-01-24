@@ -8,10 +8,6 @@ jobs:
   deploy:
     name: Deploy Demo
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
       - name: Trigger Deploy
         run: |
