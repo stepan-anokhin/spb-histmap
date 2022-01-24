@@ -4,10 +4,13 @@
     {
       "type": "Feature",
       "properties": {
-        "description": "Приморская оперативная группа (ПОГ)",
+        "description": "<b>Приморская оперативная группа (ПОГ)</b>",
+        "actionHeader": "Группа действовала",
         "dateStart": "1941-11-01",
         "dateEnd": "1941-11-30",
-        "color": "#FF0000"
+        "color": "#FF0000",
+        "fillOpacity": 0.07,
+        "dashArray": "10 20"
       },
       "geometry": {
         "type": "Polygon",

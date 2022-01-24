@@ -4,6 +4,8 @@ import {
   asArray,
   FrontLineElement,
   FrontLineGeoJSON,
+  parseFrontLineDate,
+  DateDisplayFormat,
 } from "../../model";
 import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
@@ -24,17 +26,25 @@ type HistMapProps = {
   className?: string;
 };
 
-function addFrontLineTooltip(feature: FrontLineElement, layer: L.Layer) {
-  const { description = "", dateStart, dateEnd } = feature.properties;
-  layer.bindTooltip(
+function addFrontLinePopup(feature: FrontLineElement, layer: L.Layer) {
+  const {
+    description = "",
+    actionHeader = "Линия фронта действовала",
+    dateStart,
+    dateEnd,
+  } = feature.properties;
+  layer.bindPopup(
     description +
-      "<br/><br/>Линия фронта действовала с:<br/>" +
+      "<br/><br/>" +
+      actionHeader +
+      " с:<br/>" +
       (dateStart == undefined
         ? "<неизвестно>"
-        : new Date(dateStart).toString()) +
+        : formatDate(parseFrontLineDate(dateStart), DateDisplayFormat)) +
       "</br>по:<br/>" +
-      (dateEnd == undefined ? "<неизвестно>" : new Date(dateEnd).toString()),
-    { sticky: true }
+      (dateEnd == undefined
+        ? "<неизвестно>"
+        : formatDate(parseFrontLineDate(dateEnd), DateDisplayFormat))
   );
 }
 
@@ -42,8 +52,7 @@ function setFrontLineStyle(feature?: FrontLineElement): PathOptions {
   if (feature == null) {
     return {};
   }
-  const { color = "red" } = feature.properties;
-  return { color: color };
+  return feature.properties as PathOptions;
 }
 
 function renderGeoJSONs(jsons: FrontLineGeoJSON[]): React.ReactNode[] {
@@ -52,7 +61,7 @@ function renderGeoJSONs(jsons: FrontLineGeoJSON[]): React.ReactNode[] {
       data={json}
       key={index}
       style={setFrontLineStyle}
-      onEachFeature={addFrontLineTooltip}
+      onEachFeature={addFrontLinePopup}
     />
   ));
 }
@@ -81,7 +90,7 @@ const HistMap = React.memo(function HistMap(props: HistMapProps): JSX.Element {
         {hits.map((hit, index) => (
           <Marker position={asArray(hit.position)} key={index}>
             <Popup>
-              Дата: {formatDate(hit.date, "dd.MM.yyyy")} <br /> Адрес:{" "}
+              Дата: {formatDate(hit.date, DateDisplayFormat)} <br /> Адрес:{" "}
               {hit.address.street}, {hit.address.houseNumber}
             </Popup>
           </Marker>
