@@ -1,36 +1,56 @@
-{"type":"FeatureCollection",
-    "features":[
-	{
-	 "type":"Feature",
-	 "properties":{
-	    "description":"Ледовая трасса",
-    	    "dateStart": "1941-11-22",
-    	    "dateEnd": "1942-04-24",
-    	    "color":"#FF0000"
-	},
-	"geometry":{"type":"LineString","coordinates":[[31.06453,60.07169],[31.3591,59.99624],[31.58076,59.94796]
-    ]
- }
-},
-{"type":"Feature",
-	"properties":{
-	    "description":"Ледовая трасса",
-    	    "dateStart": "1941-11-22",
-    	    "dateEnd": "1942-04-24",
-    	    "color":"#FF0000"
-	},
-	"geometry":{"type":"LineString","coordinates":[[31.39137,59.98929],[31.5517,60.02395]
-    ]
- }
-},
-{"type":"Feature",
-	"properties":{
-	    "description":"Ледовая трасса",
-    	    "dateStart": "1941-11-22",
-    	    "dateEnd": "1942-04-24",
-    	    "color":"#FF0000"
-	},
-    "geometry":{"type":"LineString","coordinates":[[31.5517,60.02413],[31.40442,60.00165],[31.37506,60.01383],[31.06453,60.07178]]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "description": "Ледовая трасса",
+        "dateStart": "1941-11-22",
+        "dateEnd": "1942-04-24",
+        "color": "#FF0000"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [31.06453, 60.07169],
+          [31.3591, 59.99624],
+          [31.58076, 59.94796]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "description": "Ледовая трасса",
+        "dateStart": "1941-11-22",
+        "dateEnd": "1942-04-24",
+        "color": "#FF0000"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [31.39137, 59.98929],
+          [31.5517, 60.02395]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "description": "Ледовая трасса",
+        "dateStart": "1941-11-22",
+        "dateEnd": "1942-04-24",
+        "color": "#FF0000"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [31.5517, 60.02413],
+          [31.40442, 60.00165],
+          [31.37506, 60.01383],
+          [31.06453, 60.07178]
+        ]
+      }
     }
- ]
+  ]
 }
