@@ -11,6 +11,7 @@ import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import L, { LatLngBounds, PathOptions } from "leaflet";
 import { format as formatDate } from "date-fns";
+import BombIcon from "../../icons/BombIcon";
 
 /**
  * Area displayed by HistMap.
@@ -88,7 +89,7 @@ const HistMap = React.memo(function HistMap(props: HistMapProps): JSX.Element {
       {renderGeoJSONs(geojsons)}
       <MarkerClusterGroup>
         {hits.map((hit, index) => (
-          <Marker position={asArray(hit.position)} key={index}>
+          <Marker position={asArray(hit.position)} key={index} icon={BombIcon}>
             <Popup>
               Дата: {formatDate(hit.date, DateDisplayFormat)} <br /> Адрес:{" "}
               {hit.address.street}, {hit.address.houseNumber}
