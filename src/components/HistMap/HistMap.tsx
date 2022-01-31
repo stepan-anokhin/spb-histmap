@@ -2,17 +2,16 @@ import React from "react";
 import {
   ArtilleryHit,
   asArray,
+  DateDisplayFormat,
   FrontLineElement,
   FrontLineGeoJSON,
-  parseFrontLineDate,
-  DateDisplayFormat,
   hitTypeText,
+  parseFrontLineDate,
 } from "../../model";
 import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import L, { LatLngBounds, PathOptions } from "leaflet";
 import { format as formatDate } from "date-fns";
-import BombIcon from "../../icons/BombIcon";
 import hitIcon from "./hitIcon";
 
 /**
