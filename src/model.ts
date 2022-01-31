@@ -18,10 +18,18 @@ export type House = {
   position: Position;
 };
 
+export enum HitType {
+  Fougasse,
+  Artillery,
+  Incendiary,
+}
+
 export type ArtilleryHit = {
+  type: HitType;
   date: Date;
   address: Address;
   position: Position;
+  description?: string | null;
 };
 
 /**
@@ -156,4 +164,15 @@ export function checkFrontLine(
     );
   }
   return true;
+}
+
+function hitTypeText(type: HitType): string {
+  switch (type) {
+    case HitType.Artillery:
+      return "Артиллерийский снаряд";
+    case HitType.Fougasse:
+      return "Фугасная бомба";
+    case HitType.Incendiary:
+      return "Зажигательный снаряд";
+  }
 }
