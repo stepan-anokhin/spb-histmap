@@ -18,10 +18,31 @@ export type House = {
   position: Position;
 };
 
+export enum HitType {
+  Fougasse,
+  Artillery,
+  Incendiary,
+}
+
+/**
+ * All hit types as an array.
+ */
+export const hitTypes: HitType[] = [
+  HitType.Incendiary,
+  HitType.Fougasse,
+  HitType.Artillery,
+];
+
+export function isHitType(value: unknown): value is HitType {
+  return typeof value === "number" && hitTypes.includes(value);
+}
+
 export type ArtilleryHit = {
+  type: HitType;
   date: Date;
   address: Address;
   position: Position;
+  description?: string | null;
 };
 
 /**
@@ -76,6 +97,7 @@ export type HitFilters = {
   addrType: AddressType;
   minDate?: Date | null;
   maxDate?: Date | null;
+  types: HitType[];
 };
 
 /**
@@ -101,6 +123,7 @@ export const DefaultAppOptions: AppOptions = {
     houseNumber: null,
     minDate: null,
     maxDate: null,
+    types: [HitType.Fougasse, HitType.Incendiary, HitType.Artillery],
   },
   frontLine: {
     show: true,
@@ -137,6 +160,9 @@ export function checkHit(hit: ArtilleryHit, filters: HitFilters): boolean {
   if (filters.maxDate != null && hit.date > filters.maxDate) {
     return false;
   }
+  if (!filters.types.includes(hit.type)) {
+    return false;
+  }
   return true;
 }
 
@@ -156,4 +182,15 @@ export function checkFrontLine(
     );
   }
   return true;
+}
+
+export function hitTypeText(type: HitType): string {
+  switch (type) {
+    case HitType.Artillery:
+      return "Артиллерийский снаряд";
+    case HitType.Fougasse:
+      return "Фугасная бомба";
+    case HitType.Incendiary:
+      return "Зажигательный снаряд";
+  }
 }
