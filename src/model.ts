@@ -166,7 +166,7 @@ export function checkFrontLine(
   return true;
 }
 
-function hitTypeText(type: HitType): string {
+export function hitTypeText(type: HitType): string {
   switch (type) {
     case HitType.Artillery:
       return "Артиллерийский снаряд";
