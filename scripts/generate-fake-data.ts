@@ -1,4 +1,4 @@
-import { ArtilleryHit, House } from "../src/model";
+import { ArtilleryHit, HitType, House } from "../src/model";
 import { houses as spbHouses } from "../src/processing/spb-houses";
 import { inspect } from "util";
 
@@ -7,6 +7,19 @@ import {
   toTypeScriptLiteral,
   writeTypeScriptModule,
 } from "../src/processing/script-utils";
+
+/**
+ * Generate random hit type.
+ */
+function randomType(): HitType {
+  if (Math.random() < 0.5) {
+    return HitType.Artillery;
+  } else if (Math.random() < 0.5) {
+    return HitType.Incendiary;
+  } else {
+    return HitType.Fougasse;
+  }
+}
 
 /**
  * Generate random artillery hit.
@@ -18,9 +31,11 @@ function randomHit(
 ): ArtilleryHit {
   const house = houses[Math.floor(Math.random() * houses.length)];
   return {
+    type: randomType(),
     address: house.address,
     position: house.position,
     date: randomDate(minDate, maxDate),
+    description: "Пробито чердачное перекрытие 3 этажа.",
   };
 }
 

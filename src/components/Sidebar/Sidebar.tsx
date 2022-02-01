@@ -15,7 +15,8 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import ruLocale from "date-fns/locale/ru";
 import produce from "immer";
 import { Checkbox, FormControlLabel, Tooltip } from "@mui/material";
-import { AddressType, AppOptions } from "../../model";
+import { AddressType, AppOptions, HitType } from "../../model";
+import HitTypeSelect from "./HitTypeSelect";
 
 /**
  * War period.
@@ -128,6 +129,16 @@ function Sidebar(props: SidebarProps): JSX.Element {
     [options, onChange]
   );
 
+  const handleTypes = useCallback(
+    (newTypes: HitType[]) =>
+      onChange(
+        produce(options, (updated) => {
+          updated.hit.types = newTypes;
+        })
+      ),
+    [options, onChange]
+  );
+
   const handleFrontDate = useCallback(
     (date: Date | null) =>
       onChange(
@@ -216,6 +227,14 @@ function Sidebar(props: SidebarProps): JSX.Element {
               maxDate={Period.to}
               defaultCalendarMonth={Period.to}
               mask="__.__.____"
+            />
+          </Field>
+        </SidebarSection>
+        <SidebarSection title="Тип Попадания">
+          <Field>
+            <HitTypeSelect
+              types={options.hit.types || []}
+              onChange={handleTypes}
             />
           </Field>
         </SidebarSection>
