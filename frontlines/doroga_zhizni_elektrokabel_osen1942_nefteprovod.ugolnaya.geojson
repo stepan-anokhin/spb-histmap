@@ -5,11 +5,11 @@
       "type": "Feature",
       "properties": {
         "description": "Электрический кабель проложенный по дну. Кабель Жизни.",
-	"actionHeader": "Кабель использовался",
+        "actionHeader": "Кабель использовался",
         "dateStart": "1942-09-23",
         "dateEnd": "1943-12-31",
         "color": "#800080",
-	"dashArray": "10 30"
+        "dashArray": "10 30"
       },
       "geometry": {
         "type": "LineString",
@@ -23,12 +23,12 @@
       "type": "Feature",
       "properties": {
         "description": "Нефтепровод проложенный по дну.",
-	"actionHeader": "Нефтепровод действовал",
+        "actionHeader": "Нефтепровод действовал",
         "dateStart": "1942-06-16",
         "dateEnd": "1943-10-31",
-	"weight": 7,
+        "weight": 7,
         "color": "#808080",
-	"dashArray": "10 20"
+        "dashArray": "10 20"
       },
       "geometry": {
         "type": "LineString",
@@ -42,10 +42,10 @@
       "type": "Feature",
       "properties": {
         "description": "Угольная трасса",
-	"actionHeader": "Действовала",
+        "actionHeader": "Действовала",
         "dateStart": "1942-05-20",
         "dateEnd": "1942-11-25",
-	"weight": 5,
+        "weight": 5,
         "color": "#000000"
       },
       "geometry": {

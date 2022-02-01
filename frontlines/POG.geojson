@@ -10,7 +10,7 @@
         "dateEnd": "1941-11-30",
         "color": "#FF0000",
         "fillOpacity": 0.07,
-	"dashArray": "5 10"
+        "dashArray": "5 10"
       },
       "geometry": {
         "type": "Polygon",

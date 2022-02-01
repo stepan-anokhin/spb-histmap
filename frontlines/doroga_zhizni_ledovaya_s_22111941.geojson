@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
-	"actionHeader": "Действовала",
+        "actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
         "color": "#FA8072"
@@ -23,7 +23,7 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
-	"actionHeader": "Действовала",
+        "actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
         "color": "#FA8072"
@@ -40,7 +40,7 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
-	"actionHeader": "Действовала",
+        "actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
         "color": "#FA8072"
