@@ -5,9 +5,10 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
+	"actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
@@ -22,9 +23,10 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
+	"actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
@@ -38,9 +40,10 @@
       "type": "Feature",
       "properties": {
         "description": "Ледовая трасса",
+	"actionHeader": "Действовала",
         "dateStart": "1941-11-22",
         "dateEnd": "1942-04-24",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
