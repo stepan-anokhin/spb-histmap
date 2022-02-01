@@ -5,9 +5,10 @@
       "type": "Feature",
       "properties": {
         "description": "Перевозки Ладожской флотилии по малой трассе",
+        "actionHeader": "Действовала",
         "dateStart": "1942-05-20",
         "dateEnd": "1942-11-25",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
@@ -21,9 +22,10 @@
       "type": "Feature",
       "properties": {
         "description": "Перевозки Ладожской флотилии по малой трассе",
+        "actionHeader": "Действовала",
         "dateStart": "1942-05-20",
         "dateEnd": "1942-11-25",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
@@ -37,9 +39,10 @@
       "type": "Feature",
       "properties": {
         "description": "Перевозки Ладожской флотилии по малой трассе",
+        "actionHeader": "Действовала",
         "dateStart": "1942-05-20",
         "dateEnd": "1942-11-25",
-        "color": "#FF0000"
+        "color": "#FA8072"
       },
       "geometry": {
         "type": "LineString",
